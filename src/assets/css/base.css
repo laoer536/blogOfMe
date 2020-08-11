@@ -1,0 +1,59 @@
+@import "./normalize.css";
+
+/*获取根元素 即HTML元素  以变量的形式设置基本样式  后面用var使用*/
+:root {
+  --color-text: #333333;  /*这里全局默认字体为白色，所以所有组件下必须对字体颜色进行设定*/
+  --color-background: #fff; /*设定网页默认背景*/
+  --font-size: 62.5%;    /*设定网页HTML元素默认的字体大小 这里即默认的16px*62.5%=10px  即在后续的样式中使用尺寸，1rem=10px  要用的间距或者字体大小除以10即可*/
+  --line-height: 1.5;  /* 设置HTML行高为150%*/
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*引入字体*/
+@font-face {
+  font-family: English1;
+  src: url("../../assets/font/Quostige-2.ttf");
+}
+
+@font-face {
+  font-family: EnglishBold;
+  src: url("../../assets/font/EnglishBold.otf");
+}
+
+html {
+  font-size: var(--font-size);  /*设定网页HTML元素默认1rem=30px*/
+}
+
+body {
+  font-family:"Microsoft YaHei", "EnglishBold","English1", Arial,sans-serif;  /*声明网页会用到的字体，书写顺序默认为字体使用顺序，如现在，在不声明使用字体的情况下，默认使用第一个，即"Microsoft YaHei"*/
+  user-select: none; /* 禁止用户鼠标在页面上选中文字/图片等 */
+  -webkit-tap-highlight-color: transparent; /* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 如果不设置 所有div默认也是这个属性 代表完全透明*/
+  background: var(--color-background);
+  line-height: var(--line-height);
+  color: var(--color-text);
+  width: 100vw;    /*body元素宽占满网页视图*/
+  overflow-x: hidden;   /*取消页面横向水平滚动轴  这个网页一般要设置 移动端看情况  但是这种解决方案不是最佳方案 解决方案是定义滚动条浮在页面之上 这样达到最好的显示效果*/
+  text-align: justify;   /*设置文本默认两端对齐*/
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+@media screen and (max-width: 600px){
+  html {font-size: 40%}   /*设定当在手机上浏览时网页在手机上单位等比例缩小为HTML默认16px的*/
+
+}
+
+
+
+
+
